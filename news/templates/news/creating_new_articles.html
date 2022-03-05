@@ -1,0 +1,23 @@
+{% extends "news/base.html" %}
+
+{% block page_content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <! –– {{ form.non_field_errors }} at the top of the form and the template lookup for errors on each field. ––>
+        {{ form.non_field_errors }}
+<div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <label for="{{ form.subject.id_for_label }}">Title:</label>
+    {{ form.title }}
+</div>
+<div class="fieldWrapper">
+    {{ form.message.errors }}
+    <label for="{{ form.message.id_for_label }}">Text:</label>
+    {{ form.text }}
+</div>
+
+            <br>
+        <button type="submit">Submit article</button>
+    </form>
+<a href="/news/">Main page</a>
+{% endblock %}
